@@ -8,7 +8,7 @@ export class InfiniteScrollComponent {
   @Input() isLoading: boolean | null = false;
   @Input() currentPage: number = 0;
   @Output() currentPageChange: EventEmitter<number> = new EventEmitter<number>();
-  @Input() itemsPerPage= 10;
+  @Input() itemsPerPage: number = 10;
   @Output() onScroll: EventEmitter<any> = new EventEmitter<any>();
 
   onScrolling() {

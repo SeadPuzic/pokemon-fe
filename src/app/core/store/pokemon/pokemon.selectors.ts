@@ -1,27 +1,23 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { State } from "../../models/state";
+import { PokemonState } from "../../models/pokemonState";
 
 // Select the entire Pokemon feature state
-export const selectPokemonState = createFeatureSelector<State>('pokemon');
+export const selectPokemonState = createFeatureSelector<PokemonState>('pokemon');
 
 // Select the list of Pokémon
 export const selectAllPokemon = createSelector(
     selectPokemonState,
-    (state: State) => state.pokemonList
+    (state: PokemonState) => state.pokemonList
 );
 
+// Select current page
 export const selectCurrentPage = createSelector(
     selectPokemonState,
-    (state: State) => state.page
-);
-
-export const selectItemsPerPage = createSelector(
-    selectPokemonState,
-    (state: State) => state.itemsPerPage
+    (state: PokemonState) => state.page
 );
 
 // Select the loading state
 export const selectPokemonLoading = createSelector(
     selectPokemonState,
-    (state: State) => state.loading
+    (state: PokemonState) => state.loading
 );

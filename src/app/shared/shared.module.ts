@@ -3,7 +3,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { RouterLink } from "@angular/router";
 import { InfiniteScrollComponent } from "./infinite-scroll/infinite-scroll.component";
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
-import {CommonModule} from "@angular/common";
+import { CommonModule } from "@angular/common";
 
 
 

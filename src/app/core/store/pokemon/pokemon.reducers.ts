@@ -1,29 +1,32 @@
 import { createReducer, on } from "@ngrx/store";
-import * as PokemonAction from "./pokemon.actions"
-import { State } from "../../models/state";
+import { PokemonState } from "../../models/pokemonState";
+import { fetchPokemonAction, fetchPokemonErrorAction, fetchPokemonResponseAction } from "./pokemon.actions";
 
 export const key="pokemon";
-export const initialState: State = {
+export const initialState: PokemonState = {
     pokemonList: [],
     itemsPerPage: 10,
     page: 0,
-    loading: false
+    loading: false,
+    error: ''
 }
 
 const _pokemonReducer = createReducer(
     initialState,
-    on(PokemonAction.fetchPokemonAction, (state, {payload}) => ({ ...state, loading: true, page: payload.page, itemsPerPage: payload.itemsPerPage })),
-    on(PokemonAction.fetchPokemonResponseAction,(state,{payload})=>{
+    on(fetchPokemonAction, (state, { payload}) => ({ ...state, loading: true, page: payload.page, itemsPerPage: payload.itemsPerPage })),
+    on(fetchPokemonResponseAction,(state,{ payload})=>{
         return {
             ...state,
             pokemonList: [...state.pokemonList, ...payload],
             loading: false,
+            error: ''
         }
     }),
-    on(PokemonAction.fetchPokemonErrorAction,(state,{error})=>{
+    on(fetchPokemonErrorAction,(state, {error})=>{
         return {
             ...state,
             loading: false,
+            error
         }
     })
 )

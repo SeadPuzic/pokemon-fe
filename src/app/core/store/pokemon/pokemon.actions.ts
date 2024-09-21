@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import {Order} from "../../services/rest.service";
-import {PokemonList} from "../../services/pokemon.service";
+import { Order } from "../../services/rest.service";
+import { PokemonList } from "../../services/pokemon.service";
 
 export const fetchPokemonAction = createAction(
     '[Pokemon] fetch request action',

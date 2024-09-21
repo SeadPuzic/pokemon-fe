@@ -23,12 +23,10 @@ export function localStorageSyncReducer(
     return reducer;
 }
 
-export function clearState(
-    reducer: ActionReducer<any>
-): ActionReducer<any> {
+export function clearState(reducer: ActionReducer<any>): ActionReducer<any> {
     return (state, action) => {
-        if(action !== null && action.type === "CLEAR_STATE"){
-            return reducer(undefined, {type: "CLEAR_STATE"});
+        if (action?.type === "CLEAR_STATE") {
+            return reducer(undefined, { type: "CLEAR_STATE" });
         }
         return reducer(state, action);
     }

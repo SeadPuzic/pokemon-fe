@@ -11,13 +11,10 @@ export class PokemonEffects {
     fetchPokemonRequest$ = createEffect(
         ()=>
             this.actions$.pipe(
-                ofType(
-                    PokemonAction.fetchPokemonAction),
+                ofType(PokemonAction.fetchPokemonAction),
                 mergeMap((action) => {
                     return this.pokemonService.list(action.payload).pipe(
-                        map((res:any)=>{
-                            return PokemonAction.fetchPokemonResponseAction({payload: res})
-                        }),
+                        map((res:any) => PokemonAction.fetchPokemonResponseAction({payload: res})),
                         catchError((error) => of(PokemonAction.fetchPokemonErrorAction(error)))
                     )
                 })

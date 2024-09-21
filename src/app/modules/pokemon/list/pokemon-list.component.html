@@ -4,7 +4,7 @@
             <div class="pokemon-box col-md-2" *ngFor="let pokemon of pokemonList$ | async">
                 <div class="box-container">
                     <img [src]="pokemon.image" alt="pokemon-image"/>
-                    <h4>{{ pokemon.name }}</h4>
+                    <h6>{{ pokemon.name }}</h6>
                 </div>
             </div>
         </div>

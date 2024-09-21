@@ -1,0 +1,9 @@
+<div class="search-results"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="1000"
+     (scrolled)="onScrolling()"
+     [scrollWindow]="false">
+  <ng-content></ng-content>
+  <div *ngIf="isLoading">Loading...</div>
+</div>
